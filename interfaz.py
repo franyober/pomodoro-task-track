@@ -27,7 +27,7 @@ class PomodoroApp:
         self.selected_date = None  # Variable to store the selected date
 
         pygame.mixer.init()
-        self.sound = pygame.mixer.Sound("/home/franyober/Documents/Python/sql-project/timer_sound.wav")
+        self.sound = pygame.mixer.Sound("/home/franyober/Documents/Python/pomodoro-task-track/timer_sound.wav")
 
         self.create_widgets()
         self.set_light_mode()
