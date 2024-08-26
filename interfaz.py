@@ -160,9 +160,6 @@ class PomodoroApp:
         if selection:
             index = selection[0]
             self.current_task = self.task_listbox.get(index)
-            for i in range(self.task_listbox.size()):
-                self.task_listbox.itemconfig(i, {'bg': self.style.lookup('TFrame', 'background')})
-            self.task_listbox.itemconfig(index, {'bg': 'yellow' if not self.dark_mode else 'dark goldenrod'})
             self.current_task_label.config(text=f"Current task: {self.current_task}")
 
     def show_message(self, message):
