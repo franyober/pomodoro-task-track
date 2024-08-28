@@ -91,11 +91,11 @@ if __name__ == "__main__":
     #createTable() #2
     #insertRow("OTRA","15-08-2024",2) #3
     #readRows() #4
-    nombre= "Ciberseguridad"
-    fecha= "20-08-2024"
-    print(search(nombre,fecha))#5
+    #nombre= "Ciberseguridad"
+    #fecha= "20-08-2024"
+    #print(search(nombre,fecha))#5
     #update(nombre,fecha,2)#6
-
+    pass
     
 
 
