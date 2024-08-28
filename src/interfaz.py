@@ -6,7 +6,7 @@ import pygame
 from graphics import controller, plotWeek
 
 POMODORO_TIME = 25
-SHORT_BREAK_TIME = 5
+SHORT_BREAK_TIME = 1
 LONG_BREAK_TIME = 15
 
 class PomodoroApp:
@@ -27,7 +27,7 @@ class PomodoroApp:
         self.selected_date = None  # Variable to store the selected date
 
         pygame.mixer.init()
-        self.sound = pygame.mixer.Sound("/home/franyober/Documents/Python/sql-project/media/timer_sound.wav")
+        self.sound = pygame.mixer.Sound(f"{controller.pathProject}/media/timer_sound.wav")
 
         self.create_widgets()
         self.set_light_mode()
