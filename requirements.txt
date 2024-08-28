@@ -1,4 +1,5 @@
 matplotlib==3.9.2
 numpy==2.1.0
 pygame==2.6.0
+sh==2.0.7
 tkcalendar==1.6.1
