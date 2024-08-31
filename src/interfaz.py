@@ -6,7 +6,7 @@ import pygame
 from graphics import controller, plotWeek
 
 POMODORO_TIME = 25
-SHORT_BREAK_TIME = 1
+SHORT_BREAK_TIME = 5
 LONG_BREAK_TIME = 15
 
 class PomodoroApp:
