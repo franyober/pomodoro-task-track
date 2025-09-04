@@ -9,6 +9,8 @@ def plotWeek(date):
     all_dates = set()
 
     days = controller.extractDays(date)
+
+    print("Datos extraídos para la gráfica:", days)  # Depuración
     
     for _, task, date, time in days:
         task_dict[date][task] += time
@@ -16,6 +18,7 @@ def plotWeek(date):
         all_dates.add(date)
     
     unique_dates = sorted(all_dates)
+    print("Fechas únicas:", unique_dates)  # Depuración
     all_tasks = list(all_tasks)
 
     fig, ax = plt.subplots(figsize=(6, 5))
@@ -35,6 +38,8 @@ def plotWeek(date):
             
             bottom += np.array(task_times)
     
+    print("Task_dict:", dict(task_dict))  # Depuración
+
     ax.set_xlabel('Fechas')
     ax.set_ylabel('Minutos')
     ax.legend()
@@ -46,4 +51,4 @@ def plotWeek(date):
     plt.show()
 
 if __name__ == "__main__":
-    plotWeek('18-08-2024')
+    plotWeek('04-09-2025')

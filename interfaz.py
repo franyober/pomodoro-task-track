@@ -5,7 +5,7 @@ from datetime import datetime
 import pygame
 from graphics import controller, plotWeek
 
-POMODORO_TIME = 25
+POMODORO_TIME = 1
 SHORT_BREAK_TIME = 5
 LONG_BREAK_TIME = 15
 
@@ -13,7 +13,7 @@ class PomodoroApp:
     def __init__(self, master):
         self.master = master
         self.master.title("Pomodoro App")   
-        self.master.geometry("400x700")
+        self.master.geometry("400x900")
 
         self.style = ttk.Style()
         self.style.theme_use('clam')
@@ -31,6 +31,11 @@ class PomodoroApp:
 
         self.create_widgets()
         self.set_light_mode()
+        try:
+            controller.createDB()
+            controller.createTable()
+        except Exception as e:
+            print(f"Error creating database or table: {e}")
 
     def create_widgets(self):
         self.main_frame = ttk.Frame(self.master, padding="20")
@@ -95,7 +100,7 @@ class PomodoroApp:
         top = tk.Toplevel(self.master)
         top.title("Select a date")
         
-        cal = Calendar(top, selectmode='day', date_pattern='DD-MM-YYYY')
+        cal = Calendar(top, selectmode='day', date_pattern='YYYY-MM-DD')
         cal.pack(padx=10, pady=10)
         
         ok_button = ttk.Button(top, text="OK", command=lambda: self.get_date(cal, top))
@@ -201,7 +206,7 @@ class PomodoroApp:
 
     def save_completed_pomodoro(self):
         if self.current_timer == "Pomodoro":
-            current_date = datetime.now().strftime("%d-%m-%Y")
+            current_date = datetime.now().strftime("%Y-%m-%d")
             pomodoro_time = POMODORO_TIME 
             completed_pomodoro = (self.current_task, current_date, pomodoro_time)
             self.completed_pomodoros.append(completed_pomodoro)

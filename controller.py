@@ -71,8 +71,8 @@ def deleteRow(id):
 def extractDays(date):
     conn = sql.connect("Database.db")
     cursor = conn.cursor() # objeto de la conexión
-    seis_dias_antes = datetime.datetime.strptime(date, '%d-%m-%Y') - datetime.timedelta(days=6)
-    seis_dias_antes_formateada = seis_dias_antes.strftime('%d-%m-%Y')
+    seis_dias_antes = datetime.datetime.strptime(date, '%Y-%m-%d') - datetime.timedelta(days=6)
+    seis_dias_antes_formateada = seis_dias_antes.strftime('%Y-%m-%d')
     intruccion = f"SELECT * FROM Tasks WHERE Date BETWEEN '{seis_dias_antes_formateada}' AND '{date}'"
     cursor.execute(intruccion)
     datos = cursor.fetchall() # se crea una lista de tuplas, cada tupla es un registro
@@ -87,10 +87,10 @@ if __name__ == "__main__":
     #insertRow("OTRA","15-08-2024",2) #3
     #readRows() #4
     nombre = 'tarea1'
-    fecha = '16-08-2024'
+    fecha = '04-09-2025'
     #search(nombre,fecha)#5
     #update(nombre,fecha,2)#6
-
+    deleteRow(3)
     initialday = extractDays(fecha)
     print(initialday)
 
